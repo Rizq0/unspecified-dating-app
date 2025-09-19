@@ -10,13 +10,6 @@ export class AccountService {
   baseUrl = 'https://localhost:5001/api/'; // hardcoded for simplicity, ideally from environment
 
   login(credentials: any) {
-    this.http.post(this.baseUrl + 'account/login', credentials).subscribe({
-      next: (response) => {
-        console.log('Login successful', response);
-      },
-      error: (error) => {
-        alert(error);
-      }
-    })
+    return this.http.post(this.baseUrl + 'account/login', credentials);
   }
 }
