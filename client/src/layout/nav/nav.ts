@@ -17,11 +17,18 @@ export class Nav {
     this.accountService.login(this.credentials).subscribe({
       next: (response) => {
         console.log('Login successful', response);
+        this.loggedIn.set(true);
+        this.credentials = {};
       },
       error: (error) => {
         alert(error);
       }
     });
+  }
+
+  logout() {
+    this.loggedIn.set(false);
+    this.credentials = {};
   }
 }
 
