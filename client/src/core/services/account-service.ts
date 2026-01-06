@@ -10,7 +10,7 @@ export class AccountService {
   private http = inject(HttpClient);
   currentUser = signal<User | null>(null);
 
-  baseUrl = 'https://localhost:5001/api/'; // hardcoded for simplicity, ideally from environment
+  baseUrl = 'https://localhost:5001/api/'; // hardcoded for simplicity, ideally from environment variables
 
   login(credentials: any) {
     return this.http.post<User>(this.baseUrl + 'account/login', credentials).pipe(tap(user => {
